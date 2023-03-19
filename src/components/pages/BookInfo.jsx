@@ -4,9 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import Book from "../ui/Book";
 import Price from "../ui/Price";
 import Rating from "../ui/Rating";
-export default function BookInfo({ books }) {
+
+export default function BookInfo({ books, addToCart }) {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
+
   return (
     <div id='books__body'>
       <main id='books__main'>
@@ -48,7 +50,9 @@ export default function BookInfo({ books }) {
                     similique quos deleniti et? Dolorum, at? Fugiat!
                   </p>
                 </div>
-                <button className='btn'>Add to Cart</button>
+                <button className='btn' onClick={() => addToCart(book)}>
+                  Add to Cart
+                </button>
               </div>
             </div>
           </div>
